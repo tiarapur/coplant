@@ -1,0 +1,23 @@
+{% extends "base.html" %} {% block title %}User{% endblock %} {% block content%}
+  <h1 align="center">User</h1>
+  <h5 align="center" style="color:rgb(131, 215, 147);">Information about the user</h5>
+<!-- Guide starts here -->
+  <div class="padding">
+  </div>
+  <p>{{ 'Name: ' + user.first_name }}</p>
+  <p>{{ 'Email: ' + user.email }}</p>
+
+  <div style="border-bottom: thin solid black", class="padding">
+  </div>
+  <div class="padding">
+  </div>
+<!-- Creating a Guide -->
+{% if user.email == 'admin@me.de' %}
+  <div class="padding">
+  </div>
+  <h5 align="center" style="color:rgb(131, 215, 147);">Here are all accounts:</h5>
+  <ul class="list-group list-group-flush" id="user">
+  {% else %}
+  <h5 align="center" style="color:rgb(234, 79, 79);">You do not have access to this section!</h5>
+  {% endif %}
+  {% endblock %}

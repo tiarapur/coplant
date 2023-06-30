@@ -1,0 +1,59 @@
+<!-- Text from https://www.thesill.com/blog/top-ten-plant-care-tips -->
+{% extends "base.html" %} {% block title %}Guide{% endblock %} {% block content%}
+  <h1 align="center">Guide</h1>
+  <h5 align="center" style="color:rgb(131, 215, 147);">Your trusty plant guide</h5>
+<!-- Guide starts here -->
+  <ul class="list-group list-group-flush" id="guide">
+    {% for guide in user.guide %}
+    <li class="list-group-item">
+      {{ guide.guide_title  }}
+    </li>
+    {% endfor %}
+  </ul>
+  <ul class="list-group list-group-flush">
+    Pick plants that work with your schedule
+    <li class="list-group-item">Too much water can lead to root rot. Ditch your watering schedule and water your plant only when it needs it. Check the potting mix or soil first to make sure it’s dry at least 2 inches deep below the surface. If your soil looks dark in color, feels moist, and sticks to your finger, your plant has enough water to do it’s thing for now.
+
+      How often you water will also change throughout the year. Plants need less water in the winter months, when they’re growing slower, the days are shorter and sunlight is less intense. If the heat is on and their soil is drying out quicker, they may need a bit more water. Wilting leaves or soil that looks pulled away from the sides of the planter are signs of a thirsty plant.
+      
+      Always use warm water because it absorbs best. Pour water directly on the soil around the base of the plant, because plants absorb water from their roots. The only exception here is Epiphytes, like air plants, who absorb water through their leaves.
+      
+      You can also place a saucer under your planter, if it has a drainage hole. After you water, let your plant soak up in access water that fills the saucer for a few hours before emptying it.
+      </li>
+  </ul>
+  <div class="padding">
+  </div>
+  <ul class="list-group list-group-flush">
+    Pick plants that work with your schedule
+    <li class="list-group-item"> New to plant parenthood? A busy ​work schedule, social​ life, and general forgetfulness can lead to unintentional plant neglect. It’s okay. Some plants can handle that kind of lifestyle. A jet-setter like yourself will enjoy the resilience of low-maintenance and drought-tolerant succulents, ZZ plants, or snake plants, all pretty low key, as long as they have enough light (bright and low light respectively). These should keep looking their best when you return from your next trip.</li>
+  </ul>
+
+  <div class="padding">
+  </div>
+
+<!-- Creating a Guide -->
+{% if user.email == 'admin@me.de' %}
+  <div class="padding">
+  </div>
+  <h5 align="center" style="color:rgb(131, 215, 147);">You have access to add a new comment:</h5>
+  <form method="POST">
+    <div class="form-group">
+      <label for="guide_title">Title</label>
+      <input 
+        type="text" 
+        class="form-control" 
+        id="guide_title" 
+        name="guide"
+        placeholder="Enter a title"
+      />
+    </div>
+    <textarea name="guide" id="guide_content" class="form-control"></textarea>
+    <br />
+    <div align="center">
+      <button type="submit" class="btn btn-primary">Add Post</button>
+    </div>
+  </form>
+  {% else %}
+  <h5 align="center" style="color:rgb(234, 79, 79);">You do not have access to add a new comment!</h5>
+  {% endif %}
+  {% endblock %}

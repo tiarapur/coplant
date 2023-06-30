@@ -1,0 +1,44 @@
+{% extends "base.html" %} {% block title %}Blog{% endblock %} {% block content%}
+  <h1 align="center">Blog</h1>
+  <div class="padding">
+  </div>
+  <!-- My Posts -->
+<h5 align="center" style="color:rgb(0, 0, 0);">My Posts</h5>
+<ul class="list-group list-group-flush" id="notes">
+  {% for note in user.notes %}
+  <li class="list-group-item">
+    {{  'From User: ' + user.first_name }}
+    <br />
+    {{ note.data }}
+    <button type="button" class="close" onClick="deleteNote({{ note.id }})">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+<div class="padding">
+</div>
+<!-- All plants -->
+<div class="padding">
+</div>
+<h5 align="center" style="color:rgb(0, 0, 0);">All Posts</h5>
+<div class="padding">
+</div>
+<ul class="list-group list-group-flush" id="blog">
+  {% for note in all_post %}
+  <li class="list-group-item">
+    {{ note.data  }}
+  </li>
+  {% endfor %}
+</ul>
+<div class="padding">
+</div>
+<form method="POST">
+  <textarea name="note" id="note" class="form-control"></textarea>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Add Post</button>
+  </div>
+</form>
+  
+  {% endblock %}

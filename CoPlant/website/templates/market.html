@@ -1,0 +1,62 @@
+{% extends "base.html" %} {% block title %}Market{% endblock %} 
+{% block content%}
+<h1 align="center">Market</h1>
+<h5 align="center" style="color:rgb(131, 215, 147);">Trade, buy and sell plants!</h5>
+<div class="padding">
+</div>
+<!-- Search Bar -->
+<form method="POST">
+  <input type="text" autofocus="autofocus" name="search_string">
+  <input type="submit" formaction="/search" value="Search">
+</form>
+<div style="border-bottom: thin solid black", class="padding">
+</div>
+<div class="padding">
+</div>
+<!-- My plants -->
+<h5 align="center" style="color:rgb(0, 0, 0);">My plants</h5>
+<ul class="list-group list-group-flush" id="plant">
+  {% for plant in user.plant %}
+  <li class="list-group-item">
+    {{  'From User: ' + user.first_name }}
+    <br />
+    {{ plant.plantname  }}
+    <button type="button" class="close" onClick="deletePlant({{ plant.id }})">
+        <span aria-hidden="true">&times;</span>
+    </button>
+  </li>
+  {% endfor %}
+</ul>
+<!-- All plants -->
+<div class="padding">
+</div>
+<h5 align="center" style="color:rgb(0, 0, 0);">All plants</h5>
+<ul class="list-group list-group-flush" id="plant">
+  {% for plant in all_plant %}
+  <li class="list-group-item">
+    {{ plant.plantname  }}
+  </li>
+  {% endfor %}
+</ul>
+
+<!-- Add plant -->
+
+<div class="padding">
+</div>
+<form method="POST">
+  <textarea name="plant" id="plant" class="form-control"></textarea>
+  <br />
+<!-- Checkbox does not work yet -->
+  <input type="checkbox" id="vehicle1" name="vehicle1" value="Bike">
+  <label for="vehicle1"> Trade </label><br>
+  <input type="checkbox" id="vehicle2" name="vehicle2" value="Car">
+  <label for="vehicle2"> Sell </label><br>
+  <input type="checkbox" id="vehicle3" name="vehicle3" value="Boat">
+  <label for="vehicle3"> Want to buy</label>
+  <br />
+  <div align="center">
+    <button type="submit" class="btn btn-primary">Add Plant</button>
+  </div>
+</form>
+
+{% endblock %}

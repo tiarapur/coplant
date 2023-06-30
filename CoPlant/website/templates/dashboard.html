@@ -1,0 +1,40 @@
+{% extends "base.html" %} {% block title %}Home{% endblock %} {% block content%}
+  <h1 align="center">Welcome to your dashboard:</h1>
+  <h3 align="center">{{ user.first_name }}</h3>
+  <div class="padding">
+  </div>
+  <div class="padding">
+  </div>
+  <div align="center">
+    <a href="/blog"><img src="static/forum.png" alt="Blog" style="width:100px;height:100px;"></a>
+    <a href="/market"><img src="static/korb.png" alt="Market" style="width:100px;height:100px;"></a>
+    <a href="/guide"><img src="static/expert.png" alt="Guide" style="width:100px;height:100px;"></a>
+  </div>
+
+  <center>
+    <div class="container">
+        <div class="box">
+            <div class="box-row">
+                <div class="box-cell box1">
+                    <h5 align="center">Blog</h5>
+                    Interact with other users and connect with similar-minded people. You can post pictures and seek advice or solutions for all your problems revolving plant care.
+
+                </div>
+                 
+                <div class="box-cell box2">
+                  <h5 align="center">Market</h5>
+                  Trade, sell and buy plants! <br/> Find new plants for your home or make someone else happy by trading or selling.
+
+                </div>
+                 
+                <div class="box-cell box3">
+                  <h5 align="center">Guide</h5>
+                  Take a look at some useful tips and tricks about plant care and maintanace. This section is particularly helpful for new plant owners. Make your plants happy by properly taking care of them. 
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </center>
+  
+  {% endblock %}
